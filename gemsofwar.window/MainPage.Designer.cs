@@ -1,5 +1,4 @@
-﻿
-using gemsofwar.engine;
+﻿using gemsofwar.engine;
 
 namespace gemsofwar.window
 {
@@ -31,7 +30,7 @@ namespace gemsofwar.window
         /// </summary>
         private void InitializeComponent()
         {
-            this.CameraControl = new gemsofwar.window.Camera();
+            //this.CameraControl = new gemsofwar.window.Camera();
             this.CaptureButton = new System.Windows.Forms.Button();
             this.GemGridControl = new gemsofwar.window.GemGrid();
             this.GemModeComboBox = new System.Windows.Forms.ComboBox();
@@ -45,12 +44,12 @@ namespace gemsofwar.window
             // 
             // CameraControl
             // 
-            this.CameraControl.BackColor = System.Drawing.Color.White;
-            this.CameraControl.Location = new System.Drawing.Point(0, -3);
-            this.CameraControl.Name = "CameraControl";
-            this.CameraControl.Size = new System.Drawing.Size(640, 600);
-            this.CameraControl.TabIndex = 0;
-            this.CameraControl.UseStaticImage = false;
+            //this.CameraControl.BackColor = System.Drawing.Color.White;
+            //this.CameraControl.Location = new System.Drawing.Point(0, -3);
+            //this.CameraControl.Name = "CameraControl";
+            //this.CameraControl.Size = new System.Drawing.Size(640, 600);
+            //this.CameraControl.TabIndex = 0;
+            //this.CameraControl.UseStaticImage = false;
             // 
             // CaptureButton
             // 
@@ -144,7 +143,7 @@ namespace gemsofwar.window
             this.Controls.Add(this.GemModeComboBox);
             this.Controls.Add(this.GemGridControl);
             this.Controls.Add(this.CaptureButton);
-            this.Controls.Add(this.CameraControl);
+            //this.Controls.Add(this.CameraControl);
             this.Name = "MainPage";
             this.Text = "gemsofwar";
             this.ResumeLayout(false);
@@ -153,7 +152,7 @@ namespace gemsofwar.window
 
         #endregion
 
-        private Camera CameraControl;
+        //private Camera CameraControl;
         private System.Windows.Forms.Button CaptureButton;
         private GemGrid GemGridControl;
         private System.Windows.Forms.ComboBox GemModeComboBox;

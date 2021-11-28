@@ -1,5 +1,4 @@
-﻿
-namespace gemsofwar.window
+﻿namespace gemsofwar.window
 {
     partial class Camera
     {

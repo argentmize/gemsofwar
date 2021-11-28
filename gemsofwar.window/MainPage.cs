@@ -1,13 +1,9 @@
 ﻿using gemsofwar.engine;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Windows.Forms;
-
 using gemsofwar.engine.ai;
 using System.Text;
 
@@ -101,16 +97,16 @@ namespace gemsofwar.window
 
         private void DemoPathButton_Click(object sender, EventArgs e)
         {
-            CameraControl.UseStaticImage = true;
-            CameraControl.RotateStaticImage(resetPath: true);
+            //CameraControl.UseStaticImage = true;
+            //CameraControl.RotateStaticImage(resetPath: true);
 
             CaptureButton_Click(sender: null, e);
         }
 
         private void DemoButton_Click(object sender, EventArgs e)
         {
-            CameraControl.UseStaticImage = true;
-            CameraControl.RotateStaticImage();
+            //CameraControl.UseStaticImage = true;
+            //CameraControl.RotateStaticImage();
 
             CaptureButton_Click(sender: null, e);
         }
@@ -160,26 +156,26 @@ namespace gemsofwar.window
                 CaptureButton.Enabled = true;
             }
 
-            if (!CameraControl.UseStaticImage)
-            {
-                // save the image
-                var img = CameraControl.CroppedImage;
-                var index = 0;
-                while (File.Exists($"image.{index}.bmp")) index++;
-                img.Save($"image.{index}.bmp");
+            //if (!CameraControl.UseStaticImage)
+            //{
+            //    // save the image
+            //    var img = CameraControl.CroppedImage;
+            //    var index = 0;
+            //    while (File.Exists($"image.{index}.bmp")) index++;
+            //    img.Save($"image.{index}.bmp");
 
-                // save the dat file with labls
-                var sb = new StringBuilder();
-                for (int r = 0; r < dat.Length; r++)
-                {
-                    for (int c = 0; c < dat[r].Length; c++)
-                    {
-                        sb.Append(dat[r][c]);
-                    }
-                    sb.Append(Environment.NewLine);
-                }
-                File.WriteAllText($"image.{index}.dat", sb.ToString());
-            }
+            //    // save the dat file with labls
+            //    var sb = new StringBuilder();
+            //    for (int r = 0; r < dat.Length; r++)
+            //    {
+            //        for (int c = 0; c < dat[r].Length; c++)
+            //        {
+            //            sb.Append(dat[r][c]);
+            //        }
+            //        sb.Append(Environment.NewLine);
+            //    }
+            //    File.WriteAllText($"image.{index}.dat", sb.ToString());
+            //}
         }
 
         private void GemModeComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -200,22 +196,22 @@ namespace gemsofwar.window
         private void CaptureButton_Click(object sender, EventArgs e)
         {
             // flip to the live camera when clicked
-            if (sender != null) CameraControl.UseStaticImage = false;
+            //if (sender != null) CameraControl.UseStaticImage = false;
 
             // get the latest cropped snapshot
-            var img = CameraControl.CroppedImage;
+            //var img = CameraControl.CroppedImage;
 
-            if (img == null)
-            {
-                InfoPanelControl.SetText(new string[] { "... no image, try again ... " });
-                return;
-            }
+            //if (img == null)
+            //{
+            //    InfoPanelControl.SetText(new string[] { "... no image, try again ... " });
+            //    return;
+            //}
 
             // set text that we are processing the image has started
             InfoPanelControl.SetText(new string[] { "... processing ... " });
 
             // analyze the image and determine the gem color
-            var gems = Fingerprint.AnalyzeAll(img, Classifier);
+            //var gems = Fingerprint.AnalyzeAll(img, Classifier);
 
             lock (this)
             {
@@ -223,15 +219,15 @@ namespace gemsofwar.window
                 GemBoardControl.SuggestedMove = default(Move);
 
                 // apply all these to the GemBoard
-                foreach (var gem in gems)
-                {
-                    GemBoardControl[gem.Row, gem.Col] = gem.Fingerprint;
-                }
+                //foreach (var gem in gems)
+                //{
+                //    GemBoardControl[gem.Row, gem.Col] = gem.Fingerprint;
+                //}
 
                 // display the gems in the gem grid
                 var labels = Factory.GetMapping().Select(m => m.Name).ToList();
                 labels.Insert(Fingerprint.UnknownLabel, "unknown");
-                GemGridControl.Refresh(gems, labels);
+                //GemGridControl.Refresh(gems, labels);
             }
 
             // make a guess

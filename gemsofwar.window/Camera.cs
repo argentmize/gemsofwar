@@ -14,7 +14,7 @@ namespace gemsofwar.window
             InitializeComponent();
 
             // initialize camera
-            Device = new VideoCapture((int)DeviceId.Back);
+            Device = new VideoCapture((int)DeviceId.Back);//
 
             if (!Device.IsOpened())
             {
