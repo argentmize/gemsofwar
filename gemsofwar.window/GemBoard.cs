@@ -1,6 +1,4 @@
-﻿using engine.Common;
-using engine.Winforms;
-using gemsofwar.engine;
+﻿using gemsofwar.engine;
 using System;
 using System.Windows.Forms;
 
@@ -51,6 +49,8 @@ namespace gemsofwar.window
             // link to this control
             UI = new UIHookup(this, Board);
         }
+
+        
 
         public GameMode GameMode { get; set; }
         public Move SuggestedMove { get; set; }

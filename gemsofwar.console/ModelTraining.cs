@@ -1,6 +1,5 @@
 ﻿using gemsofwar.engine;
 using gemsofwar.engine.ai;
-using gemsofwar.window;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
